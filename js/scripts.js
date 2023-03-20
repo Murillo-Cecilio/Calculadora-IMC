@@ -38,7 +38,7 @@ const data = [
 ];
 
 // Seleção de elementos
-const imcTabe = document.querySelector("#imc-table")
+const imcTable = document.querySelector("#imc-table")
 
 const heightInput = document.querySelector("#height")
 const weightInput = document.querySelector("#weight")
@@ -55,15 +55,19 @@ function createTable(data) {
         const classification = document.createElement("p")
         classification.innerText = item.classification;
 
-        const classification = document.createElement("p")
-        classification.innerText = item.info;
+        const info = document.createElement("p")
+        info.innerText = item.info;
 
-        const classification = document.createElement("p")
-        classification.innerText = item.obesity;
+        const obesity = document.createElement("p")
+        obesity.innerText = item.obesity;
 
         div.appendChild(classification);
         div.appendChild(info);
-        div.appendChild(obesity)
+        div.appendChild(obesity);
 
+        imcTable.appendChild(div);
     })
 }
+
+// Inicialização
+createTable(data);
