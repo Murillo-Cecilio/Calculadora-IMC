@@ -44,3 +44,26 @@ const heightInput = document.querySelector("#height")
 const weightInput = document.querySelector("#weight")
 const calcBtn = document.querySelector("#calc-btn")
 const clearBtn = document.querySelector("#clear-btn")
+
+//Funções
+function createTable(data) {
+    data.forEach((item) => {
+
+        const div = document.createElement("div")
+        div.classList.add("table-data")
+
+        const classification = document.createElement("p")
+        classification.innerText = item.classification;
+
+        const classification = document.createElement("p")
+        classification.innerText = item.info;
+
+        const classification = document.createElement("p")
+        classification.innerText = item.obesity;
+
+        div.appendChild(classification);
+        div.appendChild(info);
+        div.appendChild(obesity)
+
+    })
+}
