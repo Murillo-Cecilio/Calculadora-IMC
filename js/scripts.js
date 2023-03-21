@@ -73,10 +73,23 @@ function cleanInputs() {
     heightInput.value="";
     heightInput.value="";
 }
+
+function validDigits(text) {
+    return text.replace(/[^0-9,]/g, "");
+}
+
 // Inicialização
 createTable(data);
 
 // Eventos
+[heightInput, weightInput].forEach((el) => {
+    el.addEventListener("input", (e) => {
+        const updatedValue = validDigits(e.target.value);
+
+        e.target.value = updatedValue;
+    });
+});
+
 clearBtn.addEventListener("click", (e) => {
     e.preventDefault();
     
