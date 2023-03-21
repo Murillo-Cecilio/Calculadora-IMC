@@ -80,7 +80,9 @@ function createTable(data) {
 
 function cleanInputs() {
     heightInput.value = "";
-    heightInput.value = "";
+    weightInput.value = "";
+    imcNumber.classList = "";
+    imcInfo.classList = "";
 }
 
 function validDigits(text) {
@@ -149,7 +151,7 @@ calcBtn.addEventListener("click", (e) => {
             imcNumber.classList.add("medium");
             imcInfo.classList.add("medium");
             break;
-        case "Magreza":
+        case "Obesidade Grave":
             imcNumber.classList.add("high");
             imcInfo.classList.add("high");
             break;
