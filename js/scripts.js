@@ -70,14 +70,18 @@ function createTable(data) {
 }
 
 function cleanInputs() {
-    heightInput.value="";
-    heightInput.value="";
+    heightInput.value = "";
+    heightInput.value = "";
 }
 
 function validDigits(text) {
     return text.replace(/[^0-9,]/g, "");
 }
 
+function calcImc(weight, height) {
+    const imc = (weight / (height * height)).toFixed(1) //calculo para resposta do imc, comando fixed para deixar 1 número na casa decimal
+    return imc;
+}
 // Inicialização
 createTable(data);
 
@@ -93,14 +97,14 @@ createTable(data);
 calcBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const weight = +weightInput.value.replace(",",".")
-    const height = +heightInput.value.replace(",",".")
+    const weight = +weightInput.value.replace(",", ".")
+    const height = +heightInput.value.replace(",", ".")
 
-    console.log(weight, height);
+    if (!weight || !height) return; //código para bloquear, caso valores não for realizado corretamente
 });
 
 clearBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    
+
     cleanInputs();
 })
