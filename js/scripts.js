@@ -38,12 +38,21 @@ const data = [
 ];
 
 // Seleção de elementos
-const imcTable = document.querySelector("#imc-table")
+const imcTable = document.querySelector("#imc-table");
 
-const heightInput = document.querySelector("#height")
-const weightInput = document.querySelector("#weight")
-const calcBtn = document.querySelector("#calc-btn")
-const clearBtn = document.querySelector("#clear-btn")
+const heightInput = document.querySelector("#height");
+const weightInput = document.querySelector("#weight");
+const calcBtn = document.querySelector("#calc-btn");
+const clearBtn = document.querySelector("#clear-btn");
+
+const calcContainer = document.querySelector("#calc-container");
+const resultContainer = document.querySelector("#result-container");
+
+
+const imcNumber =document.querySelector("#imc-number span");
+const imcInfo = document.querySelector("#imc-info span");
+
+const backBtn = document.querySelector("#back-btn");
 
 //Funções
 function createTable(data) {
@@ -82,6 +91,11 @@ function calcImc(weight, height) {
     const imc = (weight / (height * height)).toFixed(1) //calculo para resposta do imc, comando fixed para deixar 1 número na casa decimal
     return imc;
 }
+
+function showOrHideResults() {
+    calcContainer.classList.toggle("hide");
+    resultContainer.classList.toggle("hide");
+}
 // Inicialização
 createTable(data);
 
@@ -113,10 +127,15 @@ calcBtn.addEventListener("click", (e) => {
     });
 
     if (!info) return;
+
+    imcNumber.innerText = imc
+    imcInfo.innerText = info
+
+    showOrHideResults();
 });
 
 clearBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
     cleanInputs();
-})
+});
